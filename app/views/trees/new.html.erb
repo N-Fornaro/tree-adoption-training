@@ -1,0 +1,13 @@
+<h1>Create a Tree : </h1>
+
+<div class="container">
+  <%= simple_form_for [@tree] do |f| %>
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :description %>
+    <%= f.input :fruit_type %>
+    <%= f.input :price_per_year %>
+    <%= f.input :quantity_per_year %>
+    <%= f.submit class: "btn btn-flat mt-4" %>
+  <% end %>
+</div>

@@ -1,0 +1,8 @@
+<h1>Adopt the Tree <%= @tree.name %></h1>
+<div class="container">
+  <%= simple_form_for [@tree, @adoption] do |f| %>
+    <%= f.input :name %>
+    <%= f.input :starts_at%>
+    <%= f.submit class: "btn btn-flat mt-4" %>
+  <% end %>
+</div>

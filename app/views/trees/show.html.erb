@@ -1,0 +1,21 @@
+<h1>Show : <%= @tree.name %></h1>
+
+<div class="card-product"  >
+  <img src="https://media.istockphoto.com/id/1217388321/fr/vectoriel/arbres-fruitiers-ensemble-dillustrations-dans-le-gesign-de-dessin-anim%C3%A9-plat-isol%C3%A9-sur.jpg?s=612x612&w=0&k=20&c=ACffFSuo-zRKuSeWFIDAlFzzEeymBvCgXGpclOKd1IM=" />
+  <div class="card-product-infos">
+    <h2>Tree name : <%= @tree.name %></h2>
+    <p>Owner : <%= @tree.user.first_name%> <%= @tree.user.last_name%></p>
+    <p>Address : <%= @tree.address %></p>
+    <p>Description : <%= @tree.description %></p>
+    <p>Fruit : <%= @tree.fruit_type %></p>
+    <p>Price : <%= @tree.price_per_year %></p>
+    <p>Quantity : <%= @tree.quantity_per_year %></p>
+
+    <%= link_to "Back", trees_path%> <%= link_to "Adopt the Tree", new_tree_adoption_path(@tree)%> <%= link_to "Edit", edit_tree_path(@tree)%> <%= link_to "Delete", tree_path(@tree), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} if @tree.user == current_user%>
+  </div>
+</div>
+    <%@tree.adoptions.each do |adopt| %>
+      <h4>Adopt : <%= adopt.name %></h4>
+      <p> Start at :<%= adopt.starts_at %></p>
+      <p> End at :<%= adopt.ends_at %></p>
+    <% end %>
